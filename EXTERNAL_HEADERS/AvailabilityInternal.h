@@ -23354,13 +23354,8 @@
  *    __API_DEPRECATED_WITH_REPLACEMENT("-setName:", tvos(10.0, 10.4), ios(9.0, 10.0))
  *    __API_DEPRECATED_WITH_REPLACEMENT("SomeClassName", macos(10.4, 10.6), watchos(2.0, 3.0))
  */
-#define __API_DEPRECATED_PLATFORM_macos(x,y) macos,introduced=x,deprecated=y
-#define __API_DEPRECATED_PLATFORM_macosx(x,y) macosx,introduced=x,deprecated=y
-#define __API_DEPRECATED_PLATFORM_ios(x,y) ios,introduced=x,deprecated=y
-#define __API_DEPRECATED_PLATFORM_watchos(x,y) watchos,introduced=x,deprecated=y
-#define __API_DEPRECATED_PLATFORM_tvos(x,y) tvos,introduced=x,deprecated=y
 
-#define __API_D(msg,x) __attribute__((availability(__API_DEPRECATED_PLATFORM_##x,message=msg)))
+#define __API_D(msg,x) __attribute__((availability(__API_DEPRECATED_PLATFORM_##x,msg)))
 #define __API_DEPRECATED_MSG2(msg,x) __API_D(msg,x)
 #define __API_DEPRECATED_MSG3(msg,x,y) __API_D(msg,x) __API_D(msg,y)
 #define __API_DEPRECATED_MSG4(msg,x,y,z) __API_DEPRECATED_MSG3(msg,x,y) __API_D(msg,z)
